@@ -1,0 +1,1 @@
+"use strict";const s=(s,e)=>s.reduce(((s,o,r)=>s+o+(null!=e[r]?e[r]:"")),"");exports.pendingLiteral=(e,...o)=>Promise.all(o).then((o=>s(e,o))),exports.pendingMerge=(s,e="")=>Promise.all(s).then((s=>s.join(e)));

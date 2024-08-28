@@ -1,0 +1,56 @@
+{
+    "name": "@enzoaicardi/pendingliteral",
+    "type": "module",
+    "version": "0.0.1",
+    "description": "A ridiculously small layer for using promises in template literals",
+    "homepage": "https://github.com/enzoaicardi/pendingliteral",
+    "bugs": "https://github.com/enzoaicardi/pendingliteral/issues",
+    "author": {
+        "name": "Enzo Aicardi",
+        "url": "https://enzo.aicardi.pro"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/enzoaicardi/pendingliteral"
+    },
+    "main": "./esm/pendingliteral.js",
+    "module": "./esm/pendingliteral.js",
+    "browser": "./esm/pendingliteral.js",
+    "types": "./index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./index.d.ts",
+            "require": "./cjs/pendingliteral.cjs",
+            "import": "./esm/pendingliteral.js",
+            "browser": "./esm/pendingliteral.js",
+            "default": "./esm/pendingliteral.js"
+        },
+        "./esm": {
+            "types": "./index.d.ts",
+            "default": "./esm/pendingliteral.js"
+        },
+        "./cjs": {
+            "types": "./index.d.ts",
+            "default": "./cjs/pendingliteral.cjs"
+        },
+        "./umd": {
+            "types": "./index.d.ts",
+            "default": "./umd/pendingliteral.js"
+        },
+        "./iife": {
+            "types": "./index.d.ts",
+            "default": "./iife/pendingliteral.js"
+        }
+    },
+    "keywords": [
+        "javascript",
+        "templateliteral",
+        "taggedtemplate",
+        "taggedliteral",
+        "tagfunction"
+    ],
+    "scripts": {
+        "test": "echo \"No test specified\""
+    },
+    "license": "GPL-3.0-only"
+}
