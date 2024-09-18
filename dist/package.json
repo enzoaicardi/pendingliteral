@@ -1,7 +1,7 @@
 {
     "name": "@enzoaicardi/pendingliteral",
     "type": "module",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A ridiculously small layer for using promises in template literals",
     "homepage": "https://github.com/enzoaicardi/pendingliteral",
     "bugs": "https://github.com/enzoaicardi/pendingliteral/issues",
