@@ -1,4 +1,4 @@
-declare module "pendingliteral" {
+declare module "@enzoaicardi/pendingliteral" {
     /**
      * tag function waiting internal promises to be resolved before building the string
      * @param strings literal strings array

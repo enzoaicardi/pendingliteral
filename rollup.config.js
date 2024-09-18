@@ -5,7 +5,7 @@ const formats = ["iife", "esm", "cjs", "umd"];
 
 export default formats.map(function (format) {
     return {
-        input: "src/pendingliteral.ts",
+        input: "src/@enzoaicardi/pendingliteral.ts",
         output: {
             file: `dist/${format}/pendingliteral.${
                 format === "cjs" ? "cjs" : "js"
