@@ -11,7 +11,7 @@ _A ridiculously small layer for using promises in template literals_
 # List of all exports
 
 -   [x] pendingLiteral
--   [x] pendingMerge
+-   [x] pendingJoin
 
 # Usage
 
@@ -37,14 +37,14 @@ class MyCustomElement extends HTMLElement {
 }
 ```
 
-**pendingMerge** can be useful if you need to attach a table that can contain promises in a pendingLiteral for example.
+**pendingJoin** can be useful if you need to attach a table that can contain promises in a pendingLiteral for example.
 
 ```js
-import { pendingLiteral, pendingMerge as merge } from "pendingliteral";
+import { pendingLiteral, pendingJoin as join } from "pendingliteral";
 
 const string = pendingLiteral`
     some promises resolved:
-    ${merge(
+    ${join(
         [
             Promise.resolve().then(() => "[first promise]"),
             Promise.resolve().then(() => "[second promise]"),
@@ -68,8 +68,8 @@ npm install @enzoaicardi/pendingliteral
 ```
 
 ```js
-import { pendingLiteral, pendingMerge } from "@enzoaicardi/pendingliteral"; // es modules
-const { pendingLiteral, pendingMerge } = require("@enzoaicardi/pendingliteral"); // commonjs modules
+import { pendingLiteral, pendingJoin } from "@enzoaicardi/pendingliteral"; // es modules
+const { pendingLiteral, pendingJoin } = require("@enzoaicardi/pendingliteral"); // commonjs modules
 ```
 
 ## CDN import
@@ -78,7 +78,7 @@ const { pendingLiteral, pendingMerge } = require("@enzoaicardi/pendingliteral");
 // es modules
 import {
     pendingLiteral,
-    pendingMerge,
+    pendingJoin,
 } from "https://cdn.jsdelivr.net/npm/@enzoaicardi/pendingliteral@latest/esm/pendingliteral.js";
 ```
 
@@ -87,6 +87,6 @@ import {
 <script src="https://cdn.jsdelivr.net/npm/@enzoaicardi/pendingliteral@latest/iife/pendingliteral.js"></script>
 <script>
     // global object destructuration
-    const { pendingLiteral, pendingMerge } = pendingliteral;
+    const { pendingLiteral, pendingJoin } = pendingliteral;
 </script>
 ```

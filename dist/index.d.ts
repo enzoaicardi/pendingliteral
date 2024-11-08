@@ -12,6 +12,6 @@ declare module "@enzoaicardi/pendingliteral" {
      * @param char character used to join() the array
      * @returns
      */
-    const pendingMerge: (array: any[], char?: string) => Promise<string>;
-    export { pendingLiteral, pendingMerge };
+    const pendingJoin: (array: any[], char?: string) => Promise<string>;
+    export { pendingLiteral, pendingJoin };
 }

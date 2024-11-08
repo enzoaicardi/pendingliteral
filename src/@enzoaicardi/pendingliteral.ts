@@ -18,7 +18,7 @@ const pendingLiteral = (
  * @param char character used to join() the array
  * @returns
  */
-const pendingMerge = (array: any[], char: string = ""): Promise<string> =>
+const pendingJoin = (array: any[], char: string = ""): Promise<string> =>
     Promise.all(array).then((resolvedValues) => resolvedValues.join(char));
 
 const reduceLiteral = (strings: TemplateStringsArray, values: any[]): string =>
@@ -28,4 +28,4 @@ const reduceLiteral = (strings: TemplateStringsArray, values: any[]): string =>
         ""
     );
 
-export { pendingLiteral, pendingMerge };
+export { pendingLiteral, pendingJoin };
