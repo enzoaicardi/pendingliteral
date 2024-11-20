@@ -1,1 +1,1 @@
-"use strict";const s=(s,e)=>s.reduce(((s,o,r)=>s+o+(null!=e[r]?e[r]:"")),"");exports.pendingJoin=(s,e="")=>Promise.all(s).then((s=>s.join(e))),exports.pendingLiteral=(e,...o)=>Promise.all(o).then((o=>s(e,o)));
+"use strict";exports.pendingLiteral=(s,...e)=>Promise.all(e).then((e=>((s,e)=>s.reduce(((s,r,t)=>s+r+(null!=e[t]?e[t]:"")),""))(s,e)));

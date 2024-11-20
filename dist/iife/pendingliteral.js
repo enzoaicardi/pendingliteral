@@ -1,1 +1,1 @@
-var pendingliteral=function(n){"use strict";const r=(n,r)=>n.reduce(((n,e,i)=>n+e+(null!=r[i]?r[i]:"")),"");return n.i=(n,r="")=>Promise.all(n).then((n=>n.join(r))),n.t=(n,...e)=>Promise.all(e).then((e=>r(n,e))),n}({});
+var pendingliteral=function(n){"use strict";return n.i=(n,...r)=>Promise.all(r).then((r=>((n,r)=>n.reduce(((n,e,i)=>n+e+(null!=r[i]?r[i]:"")),""))(n,r))),n}({});

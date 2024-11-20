@@ -1,7 +1,20 @@
 /**
+ * tag function used to join template literal strings and values
+ * @param {TemplateStringsArray} strings
+ * @param {any[]} values
+ * @returns {string}
+ */
+const reduceLiteral = (strings: TemplateStringsArray, values: any[]): string =>
+    strings.reduce(
+        (accumulator, string, index) =>
+            accumulator + string + (values[index] != null ? values[index] : ""),
+        ""
+    );
+
+/**
  * tag function waiting internal promises to be resolved before building the string
- * @param strings literal strings array
- * @param values literal values array
+ * @param {TemplateStringsArray} strings literal strings array
+ * @param {any[]} values literal values array
  * @returns {Promise<string>}
  */
 const pendingLiteral = (
@@ -12,20 +25,4 @@ const pendingLiteral = (
         reduceLiteral(strings, resolvedValues)
     );
 
-/**
- * function waiting internal promises to be resolved before returning the merged array
- * @param array the array to join()
- * @param char character used to join() the array
- * @returns
- */
-const pendingJoin = (array: any[], char: string = ""): Promise<string> =>
-    Promise.all(array).then((resolvedValues) => resolvedValues.join(char));
-
-const reduceLiteral = (strings: TemplateStringsArray, values: any[]): string =>
-    strings.reduce(
-        (accumulator, string, index) =>
-            accumulator + string + (values[index] != null ? values[index] : ""),
-        ""
-    );
-
-export { pendingLiteral, pendingJoin };
+export { pendingLiteral };

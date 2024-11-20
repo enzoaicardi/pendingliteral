@@ -8,12 +8,11 @@ _A ridiculously small layer for using promises in template literals_
 [![JSDelivr Hits](https://img.shields.io/jsdelivr/npm/hm/@enzoaicardi/pendingliteral?style=for-the-badge)](https://www.jsdelivr.com/package/npm/@enzoaicardi/pendingliteral)
 [![Wiki](https://img.shields.io/badge/Wiki-Documentation-blue?style=for-the-badge)](https://github.com/enzoaicardi/pendingliteral/tree/main/wiki/README.md)
 
-# List of all exports
+## List of all exports
 
 -   [x] pendingLiteral
--   [x] pendingJoin
 
-# Usage
+## Usage
 
 **pendingLiteral** can be useful when you need to wait for one or more promises to be resolved before building a string with template literals.
 
@@ -37,49 +36,45 @@ class MyCustomElement extends HTMLElement {
 }
 ```
 
-**pendingJoin** can be useful if you need to attach a table that can contain promises in a pendingLiteral for example.
+## Derived usages
+
+If you need to perform actions on arrays, such as `join`, `reduce`, etc... Just use `Promise.all`.
 
 ```js
-import { pendingLiteral, pendingJoin as join } from "pendingliteral";
+import { pendingLiteral } from "pendingliteral";
 
 const string = pendingLiteral`
     some promises resolved:
-    ${join(
-        [
-            Promise.resolve().then(() => "[first promise]"),
-            Promise.resolve().then(() => "[second promise]"),
-            Promise.resolve().then(() => "[third promise]"),
-        ],
-        " - " /* second argument is optional */
-    )}
+    ${Promise.all([
+        Promise.resolve().then(() => "[first promise]"),
+        Promise.resolve().then(() => "[second promise]"),
+        Promise.resolve().then(() => "[third promise]"),
+    ]).then((values) => values.join(" - "))}
 `;
 
 string.then((str) => console.log(str));
 ```
 
-# Installations
+## Installations
 
 The pendingliteral layer is available as **ESModule / IIFE / Commonjs**.
 
-## NPM Package
+### NPM Package
 
 ```bash
 npm install @enzoaicardi/pendingliteral
 ```
 
 ```js
-import { pendingLiteral, pendingJoin } from "@enzoaicardi/pendingliteral"; // es modules
-const { pendingLiteral, pendingJoin } = require("@enzoaicardi/pendingliteral"); // commonjs modules
+import { pendingLiteral } from "@enzoaicardi/pendingliteral"; // es modules
+const { pendingLiteral } = require("@enzoaicardi/pendingliteral"); // commonjs modules
 ```
 
-## CDN import
+### CDN import
 
 ```js
 // es modules
-import {
-    pendingLiteral,
-    pendingJoin,
-} from "https://cdn.jsdelivr.net/npm/@enzoaicardi/pendingliteral@latest/esm/pendingliteral.js";
+import { pendingLiteral } from "https://cdn.jsdelivr.net/npm/@enzoaicardi/pendingliteral@latest/esm/pendingliteral.js";
 ```
 
 ```html
@@ -87,6 +82,6 @@ import {
 <script src="https://cdn.jsdelivr.net/npm/@enzoaicardi/pendingliteral@latest/iife/pendingliteral.js"></script>
 <script>
     // global object destructuration
-    const { pendingLiteral, pendingJoin } = pendingliteral;
+    const { pendingLiteral } = pendingliteral;
 </script>
 ```
